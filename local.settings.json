@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=functionsrgb1c8;AccountKey=hWuibI3kKZUCIARQdlBVqUAcm+r5HvNwSKLQUrtl+qJtUcLpsGcAB4t1508jepfsBf8solHhuu8g+AStaaWSTA==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "f5958891-46d2-4e71-bac9-36a09d08e6dd",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=f5958891-46d2-4e71-bac9-36a09d08e6dd;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=functionsrgb1c8;AccountKey=hWuibI3kKZUCIARQdlBVqUAcm+r5HvNwSKLQUrtl+qJtUcLpsGcAB4t1508jepfsBf8solHhuu8g+AStaaWSTA==;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "solgari-function-testa9b4"
+  },
+  "ConnectionStrings": {}
+}
