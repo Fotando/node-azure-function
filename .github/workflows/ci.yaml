@@ -12,6 +12,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
+      
+      - name: Extract branch name
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: branch
 
       - name: setup-node-js
         uses: actions/setup-node@v3
@@ -28,4 +32,18 @@ jobs:
         run: npm test
       
       - name: create-artifact
-        run: zip -r function.zip . --exclude @.funcignore --exclude .funcignore
+        run: |
+          npm prune --production
+          zip -r function.zip . --exclude @.funcignore --exclude .funcignore
+      
+      - name: az-login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: upload-artifact
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload --file function.zip --container-name releases --account-name azurefuncreleases --name "${{ steps.branch.outputs.branch }}/build/function.zip"
+            az storage blob upload --file function.zip --container-name releases --account-name azurefuncreleases --name "${{ steps.branch.outputs.branch }}/${{ github.sha }}/function.zip"
