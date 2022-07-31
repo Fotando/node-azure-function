@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: checkout
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: setup-node-js
         uses: actions/setup-node@v3
@@ -19,10 +19,10 @@ jobs:
           node-version: '16.x'
       
       - name: npm-dependencies-install
-      - run: npm ci
+        run: npm ci
 
       - name: build-function
-      - run: npm run build
+        run: npm run build
 
       - name: tests
-      - run: npm test
+        run: npm test
