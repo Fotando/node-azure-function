@@ -26,3 +26,6 @@ jobs:
 
       - name: tests
         run: npm test
+      
+      - name: create-artifact
+        run: zip -r function.zip . --exclude @.funcignore --exclude .funcignore
