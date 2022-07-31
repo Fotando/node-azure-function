@@ -6,6 +6,6 @@ const customState: CustomState = {
   name: ""
 }
 
-customState.name = "custom state from common lib MODIFIED"
+customState.name = "custom state from common lib MODIFIED AND SHOW  MESSAGE FROM CI!!!"
 
 export { customState }
