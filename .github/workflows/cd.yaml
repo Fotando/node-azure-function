@@ -17,14 +17,20 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: prepare-package-folder
+        run: |
+          mkdir -m777 package
+
       - name: download-artifact
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob download -f function.zip --container-name releases --account-name azurefuncreleases -n "${{ steps.branch.outputs.branch }}/build/function.zip"
+            az storage blob download -f ./package/function.zip --container-name releases --account-name botfuncstoragecicd83rj -n "${{ steps.branch.outputs.branch }}/build/function.zip"
 
       - name: deploy-azure-function
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az functionapp deployment source config-zip -g rusak-terraform-function-test-rg -n rusak-linux-function-app --src function.zip
+            cd package
+            echo "function.zip" > packagename.txt
+            az storage file upload-batch --account-name botfuncstoragecicd83rj --destination bot-solgari-funccustom --source . --destination-path /data/SitePackages

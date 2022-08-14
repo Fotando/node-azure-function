@@ -45,5 +45,5 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload --file function.zip --container-name releases --account-name azurefuncreleases --name "${{ steps.branch.outputs.branch }}/build/function.zip" --overwrite true
-            az storage blob upload --file function.zip --container-name releases --account-name azurefuncreleases --name "${{ steps.branch.outputs.branch }}/${{ github.sha }}/function.zip" --overwrite true
+            az storage blob upload --file function.zip --container-name releases --account-name botfuncstoragecicd83rj --name "${{ steps.branch.outputs.branch }}/build/function.zip" --overwrite true
+            az storage blob upload --file function.zip --container-name releases --account-name botfuncstoragecicd83rj --name "${{ steps.branch.outputs.branch }}/${{ github.sha }}/function.zip" --overwrite true
