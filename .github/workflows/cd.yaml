@@ -32,5 +32,6 @@ jobs:
         with:
           inlineScript: |
             cd package
-            echo "function.zip" > packagename.txt
+            echo -n "function.zip" > packagename.txt
+            # az storage file delete --account-name botfuncstoragecicd83rj -s bot-solgari-funccustom -p ./data/SitePackages/function.zip
             az storage file upload-batch --account-name botfuncstoragecicd83rj --destination bot-solgari-funccustom --source . --destination-path /data/SitePackages
